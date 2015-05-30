@@ -1,10 +1,13 @@
 var BMIService = {
 
-    getIndex: function() {
+    getIndex: function (weight, height) {
+        if(typeof(weight) !== 'number' || typeof(height) !== 'number')
+            return null;
         
+        return weight / (height * height);
     },
     
-    getDescription: function() {
+    getDescription: function () {
         // TODO to be implemented
         return "";
     }
