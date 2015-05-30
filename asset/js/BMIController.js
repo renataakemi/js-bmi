@@ -7,17 +7,25 @@ var BMIController = {
     setForm: function () {
         var form = document.querySelector('Form');
         form.addEventListener('submit', function(event) {
-            alert('Form submitted');
+            BMIController.calculateBMI(form);
             event.preventDefault();
         });
     },
     
-    calculateBMI: function () {
+    calculateBMI: function (form) {
+        var 
+            weight = parseFloat(form.weight.value),
+            height = parseFloat(form.height.value),
+            result = 0;
         
+            result = BMIService.getIndex(weight, height);
+        
+            BMIController.showResult(result);
     },
     
-    showResult: function () {
-        
+    showResult: function (result) {
+        var spanResult = document.querySelector('.result');
+        spanResult.innerHTML = result.toFixed(2);
     },
 };
 
